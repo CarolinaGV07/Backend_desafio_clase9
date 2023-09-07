@@ -1,0 +1,167 @@
+[
+    {
+        "title": "Producto1",
+        "description": "Este es producto1",
+        "code": "ABC123",
+        "price": 200,
+        "status": true,
+        "stock": 25,
+        "category": "bueno",
+        "thumbnail": "Sin imagen1",
+        "id": 1
+    },
+    {
+        "title": "Producto2",
+        "description": "Este es producto2",
+        "code": "DEF234",
+        "price": 250,
+        "status": true,
+        "stock": 26,
+        "category": "malo",
+        "thumbnail": "Sin imagen2",
+        "id": 2
+    },
+    {
+        "title": "Producto3",
+        "description": "Este es producto3",
+        "code": "GHI345",
+        "price": 300,
+        "status": true,
+        "stock": 27,
+        "category": "bueno",
+        "thumbnail": "Sin imagen3",
+        "id": 3
+    },
+    {
+        "title": "Producto4",
+        "description": "Este es producto4",
+        "code": "JKL456",
+        "price": 350,
+        "status": true,
+        "stock": 28,
+        "category": "malo",
+        "thumbnail": "Sin imagen4",
+        "id": 4
+    },
+    {
+        "title": "Producto5",
+        "description": "Este es producto5",
+        "code": "MNO789",
+        "price": 360,
+        "status": true,
+        "stock": 29,
+        "category": "bueno",
+        "thumbnail": "Sin imagen5",
+        "id": 5
+    },
+    {
+        "title": "Producto6",
+        "description": "Este es producto6",
+        "code": "PQR582",
+        "price": 370,
+        "status": true,
+        "stock": 30,
+        "category": "malo",
+        "thumbnail": "Sin imagen6",
+        "id": 6
+    },
+    {
+        "title": "Producto7",
+        "description": "Este es producto7",
+        "code": "STU603",
+        "price": 380,
+        "status": true,
+        "stock": 31,
+        "category": "bueno",
+        "thumbnail": "Sin imagen7",
+        "id": 7
+    },
+    {
+        "title": "Producto8",
+        "description": "Este es producto8",
+        "code": "VWX816",
+        "price": 390,
+        "status": true,
+        "stock": 32,
+        "category": "malo",
+        "thumbnail": "Sin imagen8",
+        "id": 8
+    },
+    {
+        "title": "Producto9",
+        "description": "Este es producto9",
+        "code": "YZA967",
+        "price": 400,
+        "status": true,
+        "stock": 33,
+        "category": "bueno",
+        "thumbnail": "Sin imagen9",
+        "id": 9
+    },
+    {
+        "title": "Producto10",
+        "description": "Este es producto10",
+        "code": "BCD042",
+        "price": 410,
+        "status": true,
+        "stock": 34,
+        "category": "malo",
+        "thumbnail": "Sin imagen10",
+        "id": 10
+    },
+    {
+        "title": "Producto11",
+        "description": "Esto es producto11",
+        "code": "OMN087",
+        "price": 420,
+        "status": true,
+        "stock": 35,
+        "category": "bueno",
+        "thumbnail": "Sin imagen11",
+        "id": 11
+    },
+    {
+        "title": "Producto12",
+        "description": "Esto es producto12",
+        "code": "XDR731",
+        "price": 430,
+        "status": true,
+        "stock": 36,
+        "category": "malo",
+        "thumbnail": "Sin imagen12",
+        "id": 12
+    },
+    {
+        "title": "Producto13",
+        "description": "Esto es producto13",
+        "code": "ZAW654",
+        "price": 440,
+        "status": true,
+        "stock": 37,
+        "category": "bueno",
+        "thumbnail": "Sin imagen13",
+        "id": 13
+    },
+    {
+        "title": "Producto14",
+        "description": "Esto es producto14",
+        "code": "GYU418",
+        "price": 450,
+        "status": true,
+        "stock": 38,
+        "category": "malo",
+        "thumbnail": "Sin imagen14",
+        "id": 14
+    },
+    {
+        "title": "Producto15",
+        "description": "Esto es producto15",
+        "code": "HGF269",
+        "price": 460,
+        "status": true,
+        "stock": 39,
+        "category": "bueno",
+        "thumbnail": "Sin imagen15",
+        "id": 15
+    }
+]
