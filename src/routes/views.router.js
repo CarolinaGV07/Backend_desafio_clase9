@@ -1,12 +1,60 @@
 import { Router } from 'express'
 import ProductManager from '../DAO/fileManager/ProductManager.js'
 import chatModel from '../DAO/mongoManager/models/chat.model.js'
+import ProductModel from '../DAO/mongoManager/models/product.model.js'
 
 const router = Router()
 const productManager = new ProductManager()
 
 router.get('/', (req, res) => {
     res.render('index', { css: 'index' })
+})
+
+router.get('/list', async (req, res) => {
+    const page = parseInt(req.query?.page || 1)
+    const limit = parseInt(req.query?.limit || 15)
+    const sort = req.query.sort || 'asc'
+    const queryParams = req.query?.query || ''
+    const query = {}
+    if(query){
+        const field = queryParams.split(',')[0]
+        let value = queryParams.split(',')[1]  //con estos query puedo ir variando la paginacion segun atributos /list?limit=6&page=1&query=price,9000 (limite de productos por pagina, nª de pagina y entra por queryParam atributo y valor (field y value))
+
+        if(!isNaN(parseInt(value))) value = parseInt(value)
+
+        query [field] = value
+    }
+
+    try {
+        const result = await ProductModel.paginate(query, {
+            page,
+            limit,
+            lean: true,
+            sort
+        })
+        
+        const totalPages = Math.ceil(result.totalCount / limit); 
+        const hasPrevPage = page > 1;
+        const hasNextPage = page < totalPages;
+
+        const response = {
+            status: 'success',
+            payload: result.products,
+            totalPages,
+            prevPage: hasPrevPage ? page - 1 : null,
+            nextPage: hasNextPage ? page + 1 : null,
+            page,
+            hasPrevPage,
+            hasNextPage,
+            prevLink: hasPrevPage ? `/api/products?limit=${limit}&page=${page - 1}&sort=${sort}&query=${query}` : null,
+            nextLink: hasNextPage ? `/api/products?limit=${limit}&page=${page + 1}&sort=${sort}&query=${query}` : null
+        }
+
+        res.status(200).json(response)
+        res.render('productsList', {css:'productsList'})
+    } catch (error) {
+        res.status(500).json({ error:'Failed to get products'});
+    }
 })
 
 router.get('/home', async (req, res) => {

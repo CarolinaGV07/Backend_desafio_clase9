@@ -6,12 +6,9 @@ const router = Router()
 
 router.get('/', async (req,res) => {
     const limit = parseInt (req.query.limit)
-
     const products = await ProductModel.find().lean().exec()
-
     if(limit){
         const limitProds = products.slice(0,limit)
-
         res.send(limitProds) 
     } else{
         res.send(products)
