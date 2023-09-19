@@ -3,25 +3,6 @@ h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.divH {
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.aH {
-    margin:5px auto;
-    color: blueviolet;
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size:20px;
-    text-align: center;
-    height: 30px;
-}
-
 .div{
     display: flex;
     justify-content: center;

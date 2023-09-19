@@ -9,9 +9,13 @@ router.get('/', async (req, res) => {
     res.send(findCart)
 })
 router.get('/:cid', async (req, res) => {
-    const cid = req.params.cid
-    const cart = await CartModel.findById(cid)
-    res.send(cart)
+    const cartId = req.params.cid
+    try {
+        const cart = await CartModel.getCartById(cartId).populate('products')
+        res.status(200).json({ status: 'success', cart })
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener el carrito' })
+    }
 })
 
 router.post('/', async (req, res) => {
@@ -30,12 +34,12 @@ router.post('/:cid/:pid', async (req, res) => {
 
         if (!cart) {
             return res.status(404).send({
-                error: "Carrito no encontrado"
+                error: "Cart not found"
             })
         }
 
         cart.products.push({
-            id: pid,
+            _id: pid,
             quantity
         })
 
@@ -45,10 +49,59 @@ router.post('/:cid/:pid', async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(500).send({
-            error: "Error al agregar producto al carrito"
+            error: "Failed to add product in cart"
         })
     }
 })
+
+router.put('/:cid', async (req, res) => {
+    const cartId = req.params.cid
+    const products = req.body.products
+
+    try {
+        await CartModel.updateCart(cartId, products)
+        res.status(200).json({ message: 'Cart updated correctly' })
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update cart' })
+    }
+})
+
+router.put('/:cid/products/:pid', async (req, res) => {
+    const cartId = req.params.cid 
+    const productId = req.params.pid
+    const quantity = parseInt(req.body.quantity)
+
+    try {
+        // Llamamos a la función asincrónica updateProductQuantity para actualizar la cantidad del producto en el carrito
+        await CartModel.updateProductQuantity(cartId, productId, quantity);
+        res.status(200).json({ message: 'Product quantity updated in cart correctly' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update product quantity in cart' });
+    }
+})
+
+router.delete('/:cid/products/:pid', async (req, res) => {
+    const cartId = req.params.cid
+    const productId = req.params.pid
+
+    try {
+        await CartModel.removeProductFromCart(cartId, productId);
+        res.status(200).json({ message: 'Product deleted to cart correctly' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete product of cart' });
+    }
+})
+
+router.delete('/:cid', async (req, res) => {
+    const cartId = req.params.cid
+
+    try {
+        await CartModel.removeAllProductsFromCart(cartId);
+        res.status(200).json({ message: 'All products are deleted of cart' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete products of cart' });
+    }
+});
 
 
 export default router
