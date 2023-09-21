@@ -4,14 +4,13 @@
 </div>
 
 <form id="form">
-    Limit: <input type="number" id="query-limit" value = "{{limit}}"><br>
-    Page: <input type="number" id="query-page" value = "{{page}}"><br>
+    Limit: <input type="number" id="query-limit" value = "{{result.limit}}"><br>
+    Page: <input type="number" id="query-page" value = "{{result.page}}"><br>
     <br>
     <button type="submit">Load</button>
 </form>
 
 <br>
-
 
 <div class="div">
 <table class="border" border="1px">
@@ -29,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        {{#each docs}}
+        {{#each result.docs}}
         <tr>
             <td class="tdata">{{this.id}}</td>
             <td class="tdata">{{this.title}}</td>
@@ -51,7 +50,7 @@
         const limit = document.getElementById('query-limit').value
         const page = document.getElementById('query-page').value
 
-        const url = `/list?limit=${limit}&page=${page}`
+        const url = `/home?limit=${limit}&page=${page}`
         window.location.href = url
     }
 </script>

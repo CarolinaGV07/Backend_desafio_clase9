@@ -39,7 +39,7 @@ router.post('/:cid/:pid', async (req, res) => {
         }
 
         cart.products.push({
-            _id: pid,
+            product_id: pid,
             quantity
         })
 

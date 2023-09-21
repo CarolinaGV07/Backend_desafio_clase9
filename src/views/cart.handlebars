@@ -2,7 +2,7 @@
 <div>
     <ul>
         {{#each cart.products}}
-        <li>{{title}} - Cantidad: {{quantity}}</li>
+        <li>{{this.product_id.title}} - Cantidad: {{this.quantity}}</li>
         {{/each}}
     </ul>
 </div>

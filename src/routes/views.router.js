@@ -32,29 +32,9 @@ router.get('/home', async (req, res) => {
             limit,
             lean: true,
             sort
-
-           
         })
-        res.render('home', {result, css: 'home'}) //result o products? o ambos?
-        
-     //  const totalPages = Math.ceil(result.totalCount / limit); 
-       // const hasPrevPage = page > 1;
-       // const hasNextPage = page < totalPages;
-
-       // const response = {
-        //    status: 'success',
-        //    payload: result.products,
-        //    totalPages,
-        //    prevPage: hasPrevPage ? page - 1 : null,
-        //    nextPage: hasNextPage ? page + 1 : null,
-        //    page,
-        //    hasPrevPage,
-        //    hasNextPage,
-        //    prevLink: hasPrevPage ? `/api/products?limit=${limit}&page=${page - 1}&sort=${sort}&query=${query}` : null,
-        //    nextLink: hasNextPage ? `/api/products?limit=${limit}&page=${page + 1}&sort=${sort}&query=${query}` : null
-
-
-        //res.status(200).json(response)
+        console.log(result)
+        res.render('home', {result, css: 'home'}) 
 
     } catch (error) {
         res.status(500).json({ error:'Failed to get products'});
@@ -66,9 +46,11 @@ router.get('/products', async (req, res) => {
     res.render('products', {products, css: 'products'} )
 })
 
-router.get('/cart', async (req, res) => {
-    const carts = await cartModel.find().lean().exec()
-    res.render('cart', {carts, css: 'cart'} )
+router.get('/cart/:cid', async (req, res) => {
+    const cartId = req.params.cid
+    const cart = await cartModel.findById(cartId).populate('products.product_id').lean().exec() //http://127.0.0.1:8080/cart/650a4f6491b80838c779a495 debo pasar la ruta cart + el id del carrito que quiero consultar
+    console.log(cart)
+    res.render('cart', {cart, css: 'cart'} )
 })
 
 router.get('/realtimeproducts', async (req, res) => {
