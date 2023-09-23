@@ -1,4 +1,9 @@
 h1{
+    margin: 5px auto;
+    padding:0%;
     color:rgb(186, 72, 195);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 35px;
+    height: 40px;
 }
