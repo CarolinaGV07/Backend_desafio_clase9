@@ -37,6 +37,10 @@ h2{
     align-items: center;
 }
 
+ul{
+    list-style-type: none;
+}
+
 .label{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;

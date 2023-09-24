@@ -20,6 +20,13 @@ h2 {
     height: 30px;
 }
 
+.divTitle{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .divIndex {
     height: 200px;
     display: flex;

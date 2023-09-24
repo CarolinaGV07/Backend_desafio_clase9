@@ -3,11 +3,20 @@
     <a class="aH" href="/form_products">Create Product</a>
 </div>
 
-<form id="form">
-    Limit: <input type="number" id="query-limit" value = "{{result.limit}}"><br>
-    Page: <input type="number" id="query-page" value = "{{result.page}}"><br>
-    <br>
-    <button type="submit">Load</button>
+<form id="form" class="form">
+    <ul>
+        <li>
+            <label class="label" for="">Limit:</label>
+            <input class="input" type="number" id="query-limit" value = "{{result.limit}}">
+        </li>
+        <li>
+            <label class="label" for="">Page:</label>
+            <input class="input" type="number" id="query-page" value = "{{result.page}}">
+        </li>
+        <div class="divButton">
+            <button class="button" type="submit">Load</button>
+        </div>
+    </ul>
 </form>
 
 <br>

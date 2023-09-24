@@ -27,6 +27,49 @@ h2{
     height: 30px;
 }
 
+.form{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.input{
+    margin:5px;
+    border-radius: 5px;
+    width: 100%;
+    height: 30%;
+}
+
+.divButton{
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    margin-top:15px;
+    border:solid;
+    border-color: blueviolet;
+    background-color: rgb(199, 174, 223);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.5em 1em;
+    cursor:pointer;
+}
+
 .div{
     display: flex;
     justify-content: center;

@@ -42,8 +42,10 @@ router.get('/home', async (req, res) => {
 })
 
 router.get('/products', async (req, res) => {
+    const cart = await cartModel.findOne().lean().exec()
     const products = await ProductModel.find().lean().exec()
-    res.render('products', {products, css: 'products'} )
+    console.log({cart})
+    res.render('products', {products, cart, css: 'products'} )
 })
 
 router.get('/cart/:cid', async (req, res) => {

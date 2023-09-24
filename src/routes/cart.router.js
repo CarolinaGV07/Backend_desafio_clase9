@@ -45,7 +45,7 @@ router.post('/:cid/:pid', async (req, res) => {
 
         const result = await cart.save()
 
-        res.send(result)
+        res.send({status: "success", payload:result})
     } catch (err) {
         console.log(err)
         res.status(500).send({
